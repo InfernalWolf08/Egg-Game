@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public Rigidbody2D rb2d;
 
+    [Header("Score")]
+    public int score=0;
+
     void Start()
     {
         // Initialize
@@ -15,5 +18,12 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb2d.AddForceX(Input.GetAxis("Horizontal")*speed);
+    }
+
+    // Functions
+    public void addScore()
+    {
+        print("Added score");
+        score++;
     }
 }
