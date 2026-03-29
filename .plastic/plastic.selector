@@ -1,0 +1,4 @@
+repository "Egg Game/Egg Game@20066803587377@cloud"
+  path "/"
+    br "/main"
+    co "/main"
