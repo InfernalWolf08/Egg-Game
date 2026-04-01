@@ -34,7 +34,7 @@ public class LevelController : MonoBehaviour
         StartCoroutine(pointsToMoney());
 
         // Bring up shop
-        
+        GetComponent<MenuController>().openShop();
     }
 
     IEnumerator pointsToMoney()

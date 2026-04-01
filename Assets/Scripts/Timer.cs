@@ -15,9 +15,9 @@ public class Timer : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         // If the player is out of time
-        if (timeLeft==0)
+        if (timeLeft<=0)
         {
-
+            Object.FindFirstObjectByType<MenuController>().endGame();
         }
     }
 }
