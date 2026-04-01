@@ -16,7 +16,7 @@ public class SpawnEggs : MonoBehaviour
         {
             if (GameController.gameStarted)
             {
-                yield return new WaitForSeconds(UnityEngine.Random.Range(0, 10));
+                yield return new WaitForSeconds(UnityEngine.Random.Range(0f, 10f));
                 Instantiate(eggObject, this.transform);
             }
 

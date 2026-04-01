@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4669495141903557129}
   - component: {fileID: 2652480194219673426}
   - component: {fileID: 3711042966869635018}
-  - component: {fileID: 8031112958024848979}
+  - component: {fileID: 5671558833870491860}
   - component: {fileID: 7014073525081701563}
   m_Layer: 0
   m_Name: Egg
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: -9178787181775975859, guid: 51cb7b47076baff409402ef679b88900, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -109,8 +109,8 @@ MonoBehaviour:
   speed: 0.5
   rb2d: {fileID: 7014073525081701563}
   player: {fileID: 0}
-  splatted: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
---- !u!70 &8031112958024848979
+  splatted: {fileID: 6874947966262122161, guid: 81489950f94515a49835ac2ab0dda6e7, type: 3}
+--- !u!70 &5671558833870491860
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,8 +144,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0, y: 1}
+  m_Size: {x: 1.5, y: 2}
   m_Direction: 0
 --- !u!50 &7014073525081701563
 Rigidbody2D:
