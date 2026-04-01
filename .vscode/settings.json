@@ -76,6 +76,10 @@
 
     "editor.wordBasedSuggestions": "matchingDocuments",
     "editor.hover.enabled": "off",
+    "editor.acceptSuggestionOnEnter": "smart",
+    "editor.suggest.showWords": false,
+    "editor.suggest.showVariables": true,
+    "editor.suggest.showFunctions": true,
     "dotnet.defaultSolution": "Egg Game.slnx",
     "dotnet.enableWorkspaceBasedDevelopment": false
 }

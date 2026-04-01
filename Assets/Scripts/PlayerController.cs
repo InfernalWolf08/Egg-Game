@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
     // Functions
     public void addScore()
     {
-        print("Added score");
         score++;
     }
 

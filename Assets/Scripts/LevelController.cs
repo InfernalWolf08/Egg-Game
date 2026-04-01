@@ -30,21 +30,7 @@ public class LevelController : MonoBehaviour
         // Increment level
         level++;
 
-        // Convert points to money
-        StartCoroutine(pointsToMoney());
-
         // Bring up shop
         GetComponent<MenuController>().openShop();
-    }
-
-    IEnumerator pointsToMoney()
-    {
-        while (pc.score>0)
-        {
-            pc.score--;
-            pc.money++;
-            yield return new WaitForSeconds(0.01f);
-            yield return null;
-        }
     }
 }

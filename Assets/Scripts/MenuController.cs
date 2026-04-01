@@ -39,6 +39,7 @@ public class MenuController : MonoBehaviour
         Time.timeScale=0;
         shop.SetActive(true);
         hud.SetActive(false);
+        StartCoroutine(shop.GetComponent<ShopController>().loadShop());
     }
 
     public void closeShop()
