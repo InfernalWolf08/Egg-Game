@@ -2,13 +2,15 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor;
 
 public class ShopController : MonoBehaviour
 {
     [Header("Controller")]
     public PlayerController pc;
     private GameObject[] buttons = new GameObject[3];
-    private int selectedIndex;
+    private int selectedIndex=-1;
     public Upgrade[] totalUpgrades;
     public Upgrade[] upgradeOptions = new Upgrade[3];
     private Upgrade selectedUpgrade;
@@ -17,6 +19,7 @@ public class ShopController : MonoBehaviour
     public TextMeshProUGUI moneyText;
     public Color defaultColor = Color.white;
     public Color selectedColor;
+    public MenuController menuCont=null;
 
     void Awake()
     {
@@ -25,6 +28,10 @@ public class ShopController : MonoBehaviour
         for (int i=0; i<buttons.Length; i++)
         {
             buttons[i] = transform.GetChild(3).GetChild(i).gameObject;
+        }
+        for (int i=0; i<totalUpgrades.Length; i++)
+        {
+            totalUpgrades[i].Reset();
         }
     }
 
@@ -41,20 +48,36 @@ public class ShopController : MonoBehaviour
             button.GetComponent<Image>().color = defaultColor;
 
             // Set the clicked one to selected color
-            if (i==index)
+            if (i==index && selectedIndex!=index)
             {
                 button.GetComponent<Image>().color = selectedColor;
             }
         }
 
         // Update selected upgrade
-        selectedIndex = index;
+        if (selectedIndex!=index)
+        {
+            selectedIndex = index;
+        } else {
+            selectedIndex = -1;
+        }
     }
 
-    public void applyUpgrade()
+    public void buyUpgrade()
     {
-        // Iterate through stats and add to appropriate locations
-        print($"Button Index: {selectedIndex}");
+        if (selectedIndex>=0)
+        {
+            // Subtract cost and apply stat changes
+            Upgrade upgrade = upgradeOptions[selectedIndex];
+            if (pc.money>=upgrade.price)
+            {
+                StartCoroutine(applyUpgrade(upgrade));
+                upgrade.price+=10;
+            }
+        } else if (selectedIndex<0) {
+            // Continue with no upgrade
+            menuCont.closeShop();
+        }
     }
 
     // Coroutines
@@ -67,7 +90,10 @@ public class ShopController : MonoBehaviour
             upgradeOptions[i] = upgrade;
         
             // Change image and name
-            // buttons[i]
+            Transform button = buttons[i].transform;
+            button.GetChild(0).GetComponent<TextMeshProUGUI>().text = upgrade.name;
+            button.GetChild(1).GetComponent<Image>().sprite = upgrade.sprite;
+            button.GetChild(2).GetComponent<TextMeshProUGUI>().text = $"${upgrade.price}";
         }
 
         // Show players their money
@@ -80,5 +106,30 @@ public class ShopController : MonoBehaviour
         }
 
         yield return null;
+    }
+
+    IEnumerator applyUpgrade(Upgrade upgrade)
+    {
+        // Animation of money decreasing
+        int final = pc.money-upgrade.price;
+        while (pc.money>final)
+        {
+            pc.money--;
+            moneyText.text = $"$$$: {pc.money}";
+            yield return new WaitForSecondsRealtime(0.075f);
+        }
+
+        yield return new WaitForSecondsRealtime(.01f);
+
+        // Go through stats and add to appropriate locations
+        pc.speed += upgrade.speed;
+        Transform basket = pc.transform.GetChild(1);
+        basket.localScale = new Vector3(basket.localScale.x+upgrade.basketSizeX, basket.localScale.y+upgrade.basketSizeY, basket.localScale.z);
+        basket.localPosition = new Vector3(basket.localPosition.x, basket.localPosition.y+(upgrade.basketSizeY/2), basket.localPosition.z);
+        EggController.alterSpeed(upgrade.eggDropSpeed);
+        SpawnEggs.changeMax(upgrade.eggSpawnRate);
+
+        // Close shop
+        menuCont.closeShop();
     }
 }

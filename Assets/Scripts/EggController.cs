@@ -4,7 +4,7 @@ using UnityEngine;
 public class EggController : MonoBehaviour
 {
     [Header("Drop")]
-    public float speed=0.5f;
+    public static float speed=0.5f;
     public Rigidbody2D rb2d;
 
     [Header("Player")]
@@ -60,5 +60,10 @@ public class EggController : MonoBehaviour
         }
 
         this.gameObject.SetActive(false);
+    }
+
+    public static void alterSpeed(float speedChange)
+    {
+        speed*=speedChange;
     }
 }
