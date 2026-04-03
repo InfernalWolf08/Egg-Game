@@ -7,8 +7,8 @@ public class Upgrade : ScriptableObject
     public float speed=0;
     public float basketSizeX=0;
     public float basketSizeY=0;
-    public float eggDropSpeed=0;
-    public float eggSpawnRate=0;
+    public float eggDropSpeed=1;
+    public float eggSpawnRate=1;
 
     [Header("Attributes")]
     public Sprite sprite=null;

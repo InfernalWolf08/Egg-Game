@@ -15,7 +15,7 @@ MonoBehaviour:
   speed: 0
   basketSizeX: 0
   basketSizeY: 0
-  eggDropSpeed: 0
+  eggDropSpeed: 1
   eggSpawnRate: 1.5
   sprite: {fileID: 0}
   name: Egg Spawn Rate

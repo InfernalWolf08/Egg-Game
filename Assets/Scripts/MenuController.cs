@@ -31,7 +31,14 @@ public class MenuController : MonoBehaviour
         Time.timeScale=0;
         end.SetActive(true);
         hud.SetActive(false);
-        end.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = $"Time's Up\nBetter Luck Next Time\n\nFinal Score: {GetComponent<PlayerController>().score}\nFinal Level: {LevelController.level}";
+        int score = GetComponent<PlayerController>().score+GetComponent<PlayerController>().money;
+        if (!PlayerPrefs.HasKey("Highscore"))
+        {
+            PlayerPrefs.SetInt("Highscore", score);
+        } else if (PlayerPrefs.GetInt("Highscore")<score) {
+            PlayerPrefs.SetInt("Highscore", score);
+        }
+        end.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = $"Time's Up\nBetter Luck Next Time\n\nFinal Score: {GetComponent<PlayerController>().score}\nHighscore: {PlayerPrefs.GetInt("Highscore")}\nFinal Level: {LevelController.level}";
     }
 
     public void openShop()
@@ -47,5 +54,6 @@ public class MenuController : MonoBehaviour
         Time.timeScale=1;
         shop.SetActive(false);
         hud.SetActive(true);
+        FindAnyObjectByType<Timer>().timeLeft+=10*LevelController.level;
     }
 }

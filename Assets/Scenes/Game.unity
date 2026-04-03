@@ -1163,7 +1163,7 @@ MonoBehaviour:
   speed: 7
   rb2d: {fileID: 289955724}
   dir: 0
-  score: 9
+  score: 0
   money: 0
   frameRate: 0.0167
   walkCycle:
@@ -1268,6 +1268,11 @@ MonoBehaviour:
   pc: {fileID: 0}
   totalUpgrades:
   - {fileID: 11400000, guid: e386516ffc38e2a429f0364a572703d2, type: 2}
+  - {fileID: 11400000, guid: 8e8063002b3c2bc43a3458dc3a2d5528, type: 2}
+  - {fileID: 11400000, guid: 5c6409f355de09e4fb9b1207edd8d095, type: 2}
+  - {fileID: 11400000, guid: 829f6ca8bfec77d4787cd740a1bd6715, type: 2}
+  - {fileID: 11400000, guid: a36811970ccbdac489333d2a55c884d4, type: 2}
+  - {fileID: 11400000, guid: 121f15c6a69450f47803e9df12fc9a74, type: 2}
   upgradeOptions:
   - {fileID: 0}
   - {fileID: 0}

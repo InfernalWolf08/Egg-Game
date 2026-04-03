@@ -16,7 +16,7 @@ MonoBehaviour:
   basketSizeX: 0
   basketSizeY: 0
   eggDropSpeed: 2
-  eggSpawnRate: 0
+  eggSpawnRate: 1
   sprite: {fileID: 0}
-  name: Egg Spped Up
-  price: 10
+  name: Egg Speed Up
+  price: 20

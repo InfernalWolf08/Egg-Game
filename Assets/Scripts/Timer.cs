@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
         // If the player is out of time
         if (timeLeft<=0)
         {
-            Object.FindFirstObjectByType<MenuController>().endGame();
+            FindAnyObjectByType<MenuController>().endGame();
         }
     }
 }

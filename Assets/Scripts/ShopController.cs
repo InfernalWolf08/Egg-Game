@@ -94,6 +94,9 @@ public class ShopController : MonoBehaviour
             button.GetChild(0).GetComponent<TextMeshProUGUI>().text = upgrade.name;
             button.GetChild(1).GetComponent<Image>().sprite = upgrade.sprite;
             button.GetChild(2).GetComponent<TextMeshProUGUI>().text = $"${upgrade.price}";
+
+            // Reset button colors
+            buttons[i].GetComponent<Image>().color = defaultColor;
         }
 
         // Show players their money

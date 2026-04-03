@@ -16,7 +16,8 @@ public class EggController : MonoBehaviour
     void Start()
     {
         // Initialize
-        player = Object.FindFirstObjectByType<PlayerController>();
+        player = FindAnyObjectByType<PlayerController>();
+        transform.localPosition = new Vector3(transform.localPosition.x+UnityEngine.Random.Range(-0.5f, 0.5f), transform.localPosition.y+UnityEngine.Random.Range(-0.5f, 0.5f), transform.localPosition.z);
     }
 
     public void FixedUpdate()
@@ -26,6 +27,8 @@ public class EggController : MonoBehaviour
         {
             rb2d.AddForceY(-speed);
         }
+
+        print($"Egg Speed: {speed}");
     }
 
     public void OnTriggerEnter2D(Collider2D info)
@@ -41,7 +44,7 @@ public class EggController : MonoBehaviour
 
     void splat()
     {
-        speed = 0;
+        rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.sprite = splatted;
         sr.sortingOrder = 5;

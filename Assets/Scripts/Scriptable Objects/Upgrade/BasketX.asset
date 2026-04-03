@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: BasketX
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   speed: 0
-  basketSizeX: 0.01
+  basketSizeX: 0.05
   basketSizeY: 0
-  eggDropSpeed: 0
-  eggSpawnRate: 0
+  eggDropSpeed: 1
+  eggSpawnRate: 1
   sprite: {fileID: 0}
   name: Basket Horizontal Size
-  price: 10
+  price: 20
