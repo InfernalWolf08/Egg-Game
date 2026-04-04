@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class MenuController : MonoBehaviour
@@ -55,5 +56,10 @@ public class MenuController : MonoBehaviour
         shop.SetActive(false);
         hud.SetActive(true);
         FindAnyObjectByType<Timer>().timeLeft+=10*LevelController.level;
+    }
+
+    public void loadScene(string name)
+    {
+        SceneManager.LoadScene(name);
     }
 }

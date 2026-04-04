@@ -48,6 +48,11 @@ public class EggController : MonoBehaviour
         rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.sprite = splatted;
+        Animator animator = GetComponent<Animator>();
+        if (animator!=null)
+        {
+            animator.SetBool("broke", true);
+        }
         sr.sortingOrder = 5;
         GetComponent<Collider2D>().enabled=false;
         rb2d.linearVelocityY=0;
