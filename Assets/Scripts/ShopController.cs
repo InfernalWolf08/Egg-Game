@@ -105,7 +105,7 @@ public class ShopController : MonoBehaviour
             pc.money++;
             pc.score--;
             moneyText.text = $"$$$: {pc.money}";
-            yield return new WaitForSecondsRealtime(0.075f);
+            yield return new WaitForSecondsRealtime(0.01f);
         }
 
         yield return null;
@@ -119,7 +119,7 @@ public class ShopController : MonoBehaviour
         {
             pc.money--;
             moneyText.text = $"$$$: {pc.money}";
-            yield return new WaitForSecondsRealtime(0.075f);
+            yield return new WaitForSecondsRealtime(0.01f);
         }
 
         yield return new WaitForSecondsRealtime(.01f);

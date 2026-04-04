@@ -17,6 +17,6 @@ MonoBehaviour:
   basketSizeY: 0
   eggDropSpeed: 0.5
   eggSpawnRate: 1
-  sprite: {fileID: 0}
+  sprite: {fileID: -5180504693929297303, guid: 98db23403b732274bb4042d4beb41b37, type: 3}
   name: Egg Speed Down
   price: 20

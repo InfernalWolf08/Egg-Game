@@ -17,6 +17,6 @@ MonoBehaviour:
   basketSizeY: 0.01
   eggDropSpeed: 1
   eggSpawnRate: 1
-  sprite: {fileID: 0}
+  sprite: {fileID: 5006771194406526926, guid: 98db23403b732274bb4042d4beb41b37, type: 3}
   name: Basket Vertical Size
   price: 10

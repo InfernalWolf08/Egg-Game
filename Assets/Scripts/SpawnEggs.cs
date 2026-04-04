@@ -4,6 +4,7 @@ using UnityEngine;
 public class SpawnEggs : MonoBehaviour
 {
     public GameObject eggObject;
+    public GameObject rottenObject;
     public static float spawnRateMax=10;
 
     void Start()
@@ -23,7 +24,13 @@ public class SpawnEggs : MonoBehaviour
             if (GameController.gameStarted)
             {
                 yield return new WaitForSeconds(UnityEngine.Random.Range(0f, spawnRateMax));
-                Instantiate(eggObject, transform);
+                int spawn = UnityEngine.Random.Range(0, 10);
+                if (spawn%2==0 || LevelController.level<=0)
+                {
+                    Instantiate(eggObject, transform);
+                } else {
+                    Instantiate(rottenObject, transform);
+                }
             }
 
             yield return null;

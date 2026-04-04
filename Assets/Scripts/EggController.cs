@@ -9,6 +9,7 @@ public class EggController : MonoBehaviour
 
     [Header("Player")]
     public PlayerController player;
+    public int scoreAdd;
 
     [Header("Egg")]
     public Sprite splatted;
@@ -35,7 +36,7 @@ public class EggController : MonoBehaviour
     {
         if (info.gameObject.tag=="basket")
         {
-            player.addScore();
+            player.addScore(scoreAdd);
             gameObject.SetActive(false);
         } else if (info.gameObject.tag=="ground") {
             splat();

@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 3711042966869635018}
   - component: {fileID: 5671558833870491860}
   - component: {fileID: 7014073525081701563}
+  - component: {fileID: -8299821428237763020}
   m_Layer: 0
-  m_Name: Egg
+  m_Name: Rotten Egg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -9178787181775975859, guid: 51cb7b47076baff409402ef679b88900, type: 3}
+  m_Sprite: {fileID: 5321951061504262776, guid: 89cc8d9ec9565ca4eab2923f109d05f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,8 +109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EggController
   rb2d: {fileID: 7014073525081701563}
   player: {fileID: 0}
-  scoreAdd: 1
-  splatted: {fileID: 6874947966262122161, guid: 81489950f94515a49835ac2ab0dda6e7, type: 3}
+  scoreAdd: -1
+  splatted: {fileID: -6113342479651186180, guid: 051e374bebcd49146914f8b58af8567f, type: 3}
 --- !u!70 &5671558833870491860
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -174,3 +175,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 5
+--- !u!95 &-8299821428237763020
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570502750243796802}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

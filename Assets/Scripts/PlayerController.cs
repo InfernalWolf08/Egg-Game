@@ -32,9 +32,9 @@ public class PlayerController : MonoBehaviour
     }
 
     // Functions
-    public void addScore()
+    public void addScore(int scoreAdd=1)
     {
-        score++;
+        score+=scoreAdd;
     }
 
     // Coroutines
