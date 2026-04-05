@@ -4,6 +4,7 @@ public class AudioController : MonoBehaviour
 {
     [Header("Sources")]
     public AudioSource bgSource;
+    public AudioSource sfxSource;
     
     [Space]
     
@@ -26,5 +27,22 @@ public class AudioController : MonoBehaviour
         bgSource.Stop();
         bgSource.clip = clip;
         bgSource.Play();
+    }
+
+    //Play a sound effect
+    public void playSFX(AudioClip clip)
+    {
+        sfxSource.Stop();
+        sfxSource.clip = clip;
+        sfxSource.Play();
+    }
+
+    // Update
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            playSFX(click);
+        }
     }
 }

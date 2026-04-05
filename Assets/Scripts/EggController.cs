@@ -12,12 +12,16 @@ public class EggController : MonoBehaviour
     public int scoreAdd;
 
     [Header("Egg")]
+    public SpriteRenderer sr;
     public Sprite splatted;
+    public AudioSource source;
 
     void Start()
     {
         // Initialize
         player = FindAnyObjectByType<PlayerController>();
+        source = GetComponent<AudioSource>();
+        sr = GetComponent<SpriteRenderer>();
         transform.localPosition = new Vector3(transform.localPosition.x+UnityEngine.Random.Range(-0.5f, 0.5f), transform.localPosition.y+UnityEngine.Random.Range(-0.5f, 0.5f), transform.localPosition.z);
     }
 
@@ -36,8 +40,7 @@ public class EggController : MonoBehaviour
     {
         if (info.gameObject.tag=="basket")
         {
-            player.addScore(scoreAdd);
-            gameObject.SetActive(false);
+            StartCoroutine(collect());
         } else if (info.gameObject.tag=="ground") {
             splat();
         }
@@ -45,8 +48,14 @@ public class EggController : MonoBehaviour
 
     void splat()
     {
+        if (GetComponent<Animator>()==null)
+        {
+            source.clip = FindAnyObjectByType<AudioController>().eggSplat;
+        } else {
+            source.clip = FindAnyObjectByType<AudioController>().eggSplatRotten;
+        }
+        source.Play();
         rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.sprite = splatted;
         Animator animator = GetComponent<Animator>();
         if (animator!=null)
@@ -56,10 +65,34 @@ public class EggController : MonoBehaviour
         sr.sortingOrder = 5;
         GetComponent<Collider2D>().enabled=false;
         rb2d.linearVelocityY=0;
-        StartCoroutine(disappear(sr));
+        StartCoroutine(disappear());
     }
 
-    IEnumerator disappear(SpriteRenderer sr)
+    IEnumerator collect()
+    {
+        // Set the sound
+        if (GetComponent<Animator>()==null)
+        {
+            source.clip = FindAnyObjectByType<AudioController>().eggCollect;
+        } else {
+            source.clip = FindAnyObjectByType<AudioController>().eggCollectRotten;
+        }
+
+        // Play sound and hide
+        sr.enabled = false;
+        source.Play();
+        while(source.isPlaying)
+        {
+            yield return null;
+        }
+        
+        // Add score and disable
+        player.addScore(scoreAdd);
+        gameObject.SetActive(false);
+        yield return null;
+    }
+
+    IEnumerator disappear()
     {
         while (sr.color.a-Time.deltaTime>0)
         {
