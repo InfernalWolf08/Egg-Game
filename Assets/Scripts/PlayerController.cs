@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float frameRate=0.1f;
     public Sprite[] walkCycle;
     public SpriteRenderer sr;
+    public Transform basket;
 
     void Start()
     {
@@ -49,8 +50,21 @@ public class PlayerController : MonoBehaviour
             // Move to next frame
             if (dir!=0)
             {
+                // Change sprite
                 index++;
                 index = index>walkCycle.Length-1 ? 0 : index;
+
+                // Move basket
+                float newY=basket.localPosition.y;
+                if (index==4 || index==11)
+                {
+                    newY=1.37f;
+                } else if (index==5) {
+                    newY=1.31f;
+                } else if (index==0 || index==12) {
+                    newY=1.43f;
+                }
+                basket.localPosition = new Vector3(basket.localPosition.x, newY, basket.localPosition.z);
 
                 yield return new WaitForSeconds(frameRate);
             } else {

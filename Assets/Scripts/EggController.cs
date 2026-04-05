@@ -79,6 +79,7 @@ public class EggController : MonoBehaviour
         }
 
         // Play sound and hide
+        player.addScore(scoreAdd);
         sr.enabled = false;
         source.Play();
         while(source.isPlaying)
@@ -86,8 +87,7 @@ public class EggController : MonoBehaviour
             yield return null;
         }
         
-        // Add score and disable
-        player.addScore(scoreAdd);
+        // Add disable
         gameObject.SetActive(false);
         yield return null;
     }

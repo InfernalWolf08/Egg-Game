@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639109156672813011
+  platformSettingsDirtyTick: 639109966437383419
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -192,9 +192,9 @@ ScriptedImporter:
     uvTransform: {x: 26, y: 74}
   - name: Frame_3
     originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 7
-    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.54, y: 0}
+    alignment: 9
+    border: {x: 1, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
@@ -213,9 +213,9 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 39}
   - name: Frame_4
     originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 7
-    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.57, y: 0}
+    alignment: 9
+    border: {x: 2, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
@@ -234,9 +234,9 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: Frame_5
     originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 7
-    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.54, y: 0}
+    alignment: 9
+    border: {x: 1, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
@@ -424,7 +424,7 @@ ScriptedImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
-  generatePhysicsShape: 0
+  generatePhysicsShape: 1
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 16, y: 32}
