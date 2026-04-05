@@ -29,7 +29,7 @@ public class EggController : MonoBehaviour
             rb2d.AddForceY(-speed);
         }
 
-        print($"Egg Speed: {speed}");
+        //print($"Egg Speed: {speed}");
     }
 
     public void OnTriggerEnter2D(Collider2D info)

@@ -25,7 +25,7 @@ public class SpawnEggs : MonoBehaviour
             {
                 yield return new WaitForSeconds(UnityEngine.Random.Range(0f, spawnRateMax));
                 int spawn = UnityEngine.Random.Range(0, 10);
-                if (spawn%3!=0 || LevelController.level<=0)
+                if (spawn%3!=0 || LevelController.level<=2)
                 {
                     Instantiate(eggObject, transform);
                 } else {

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Unity.VisualScripting;
 
 public class MenuController : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class MenuController : MonoBehaviour
     public GameObject end;
     public GameObject hud;
 
+    [Header("Other Stuff")]
+    public AudioController audio;
+
     void Start()
     {
         // Initialize
@@ -18,11 +22,13 @@ public class MenuController : MonoBehaviour
         shop.SetActive(false);
         end.SetActive(false);
         hud.SetActive(false);
+        audio.changeBG(audio.start);
     }
 
     public void startGame()
     {
         Time.timeScale=1;
+        audio.changeBG(audio.game);
         start.SetActive(false);
         hud.SetActive(true);
     }
@@ -30,6 +36,7 @@ public class MenuController : MonoBehaviour
     public void endGame()
     {
         Time.timeScale=0;
+        audio.changeBG(audio.end);
         end.SetActive(true);
         hud.SetActive(false);
         int score = GetComponent<PlayerController>().score+GetComponent<PlayerController>().money;
@@ -45,6 +52,7 @@ public class MenuController : MonoBehaviour
     public void openShop()
     {
         Time.timeScale=0;
+        audio.changeBG(audio.shop);
         shop.SetActive(true);
         hud.SetActive(false);
         StartCoroutine(shop.GetComponent<ShopController>().loadShop());
@@ -53,6 +61,7 @@ public class MenuController : MonoBehaviour
     public void closeShop()
     {
         Time.timeScale=1;
+        audio.changeBG(audio.game);
         shop.SetActive(false);
         hud.SetActive(true);
         FindAnyObjectByType<Timer>().timeLeft+=10*LevelController.level;
